@@ -1,0 +1,467 @@
+﻿@using WEBSITEBANSACH.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @*Chèn link Css của free template*@
+    <link href="~/Content/Mylayoutcss/fonts.css" rel="stylesheet" />
+    <link href="~/Content/Mylayoutcss/screen.css" rel="stylesheet" />
+
+    @*Chèn css thiết kế*@
+    <link href="~/Content/Mylayoutcss/Mylayout.css" rel="stylesheet" />
+
+    @*Chèn css font ký tự*@
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    @*Chèn link css,javarcript,nivoslider*@
+    <link href="~/Nivo%20Slider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Nivo%20Slider/jquery.nivo.slider.js"></script>
+    <script src="~/Nivo%20Slider/jquery.nivo.slider.pack.js"></script>
+    <!--Bootstrap-->
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.___gcfg = { lang: 'vi' };
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript';
+            po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    @*  *@
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=2041302712757954";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <section class="blank">
+        <nav class="row">
+            <nav class="navbar navbar-default" style="font-weight: bold; background-color: #F8F8FF; ">
+                <div class=" container-fluid">
+                    <div class="col-md-4 col-sm-4 col-xs-9">
+                        <div class="pull-left customer" style="font-weight: bold; ">
+                            @if (Session["TaiKhoan"] == null)
+                            {
+                                <a href="/Nguoidung/Dangnhap"><i class="fa fa-sign-in"></i> Your Accout </a>
+                               
+
+                                
+                            }
+                            else
+                            {
+                                <a href="/nguoidung-@Session["MaKhachHang"]"><i class="fa fa-sign-in"></i>Xin chào: @Session["TaiKhoan"]</a>
+                                <span>||</span>
+                                <a href="/dang-xuat"><i class="fa fa-sign-out"></i>Đăng Xuất</a>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 hidden-xs">
+                        <div class=" hotline-header pull-right">
+                            <p><i class="fa fa-phone-square"></i> Hotline: 0963.647.129 </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+            </nav>
+
+        </nav>
+
+
+                <!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+            </nav>
+
+            </nav>
+            @*
+            <a class="navbar-brand" href="/Home/Index">Logo</a>
+                  @if (Session["TaiKhoan"] == null)
+                                    {
+                                        <a href="/Nguoidung/Dangnhap"><i class="fa fa-sign-in"></i> Đăng nhập </a>
+                                        <span>||</span>
+
+                                        <a href="/Nguoidung/Dangki"><i class="fa fa-user"></i> Đăng ký</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/nguoidung-@Session["MaKhachHang"]"><i class="fa fa-sign-in"></i>Xin chào: @Session["TaiKhoan"]</a>
+                                        <span>||</span>
+                                        <a href="/dang-xuat"><i class="fa fa-sign-out"></i>Đăng Xuất</a>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 hidden-xs">
+                                <div class=" hotline-header pull-right">
+                                    <p><i class="fa fa-phone-square"></i> Hotline: 0963.647.129 </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- /.navbar-collapse -->
+                        <!-- /.container-fluid -->
+                    </nav>
+
+                </nav>
+
+
+
+                <nav class="navbar" style="font-size: 15px; background-color: #EEEEEE; font-weight: bold; ">
+
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="current" style="color: white;"><a href="/Home/Index">TRANG CHỦ</a></li>
+
+                        <li class="" style= "color: white;"><a href="/Gioithieu/gioithieu">GIỚI THIỆU</a></li>
+
+                        <li class="" style= "color: white;"><a href="/Home/giaohang">GIAO HÀNG</a></li>
+
+                        <li class=""><a href="/Home/KhuyenMai">SẢN PHẨM KHUYẾN MÃI</a></li>
+                        <li class=""><a href="/Lienhe/lienhe">LIÊN HỆ</a></li>
+
+
+                    </ul>
+
+                    <form action="/Timkiem/Ketquatimkiem" method="post" class="navbar-form navbar-right">
+
+                        <div class="form-group" style="width:350px;">
+                            <input style="background-color:white;" type="text" name="txtTimKiem" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+
+                    </form>*@
+
+
+
+
+</section>
+    @*style="background: MediumSeaGreen; "*@
+
+
+    @*Div menu bên trái*@
+
+
+
+
+    <div class="container">
+
+        <div class="carousel-inner" role="listbox">
+
+            @*<img src="~/hinhanh/khung.PNG" />*@
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+                <div class="slideshow">
+
+                    <div id="slider" class="nivoSlider">
+                        <img src="/hinhanh/anhnenchu.png" />
+                        <img src="/hinhanh/anhnennhieusach.jpg" />
+                        <img src="/hinhanh/anhnenbanh.jpg" />
+
+                    </div>
+
+
+
+                    <div style="clear:both"></div>
+
+                    <div style="float:left"></div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blank">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="current" style="color: white;"><a href="/Home/Index">TRANG CHỦ</a></li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM <span class="caret"></span> </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Thể Loại
+                                <a href="/CHUDE/CHUDEpartial">@Html.Action("CHUDEpartial", "CHUDE")</a></li>                       
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">NHÀ XUẤT BẢN <span class="caret"></span> </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Nhà xuất bản
+                                <a href="/NXB/SPTHEONXB">@Html.Action("NXBpartial", "NXB")</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class=""><a href="/Home/KhuyenMai">SẢN PHẨM KHUYẾN MÃI</a></li>
+                        <li class=""><a href="#contact">LIÊN HỆ</a></li>
+
+                    </ul>
+                    <form action="/Timkiem/Ketquatimkiem" method="post" class="navbar-form navbar-right">
+
+                        <div class="form-group" style="width:200px;">
+                            <input style="background-color:white;" type="text" name="txtTimKiem" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+
+                    </form>
+                 
+                </div>
+            </div>
+        </nav>
+
+    </section>
+
+
+
+        <!--LOẠI HÀNG-->
+        <section class="blank">
+            <div class= "row">
+               <div id="divMenuL">
+
+                    <div class="activity">
+                        <img src="~/hinhanh/sach/facb2c68ac019fe0f2bcacf7c288f319--stack-of-books-pile-of-books.jpg" width="300" height="550" />
+                        <img src="~/hinhanh/sach/3523201889_7a4faf84d7_b.jpg" width="300" height="550"/>
+                        <img src="~/hinhanh/sach/book-stack-creative-commons.jpg"width="300" height="550" />
+                        
+                       @* <img src="~/hinhanh/sach/bìa-Sài-Gòn-quán-xá-yêu-thương.jpg" width="300" height="500"/>
+                        <img src="~/hinhanh/sach/introsachvocungtannhanvocungyeuthuong-150418185803-conversion-gate01-thumbnail-4.jpg" width="300" height="500"/>*@
+                    @*    <!--NHÀ CUNG CẤP-->
+                        <img src="~/hinhanh/%e1%ba%a3nh-21.jpg" width="300" />
+                        <div class="pull-left" style="width:300px;">
+                            <div class="panel panel-primary " style="text-align:center;">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        THỂ LOẠI
+                                    </h4>
+                                </div>
+                                @Html.Action("CHUDEpartial", "CHUDE")
+                            </div>
+                        </div>
+                        <img src="~/hinhanh/119.jpg" width="300" />
+                        <div class="pull-left" style="width:300px;">
+                            <div class="panel  " style="text-align:center; background-color:violet; color:white;">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        NHÀ XUẤT BẢN
+                                    </h4>
+                                </div>
+                                @Html.Action("NXBpartial", "NXB")
+                            </div>
+                        </div>
+                        @*<img src="~/hinhanh/download.jpg" width="300" / >*@
+
+
+
+                    </div>
+
+                </div>
+
+
+    
+
+
+
+                <article class="col-sm-9">
+
+
+
+                    <span id="NoiDung">
+
+                        @RenderBody()
+                    </span>
+
+
+                </article>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </section>
+        <footer id="contact" class="footer_main">
+            <div class="container" style="background-color:#808080; color:white;">
+                <div class="row">
+                    <div class="footer_top">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 full-xs">
+                            <address class="footer_left_address">
+                                <h class="footer_title">Giới thiệu</h>
+
+                                <div class="footer_left_address_box">
+
+                                    <p>* Minh Khai Bookstore,Nguyễn Cư Trinh, TP.HCM</p>
+                                    <p>* Điện thoại:01218854679 (27/7)</p>
+
+
+                                </div>
+
+                            </address>
+                        </div>
+
+
+                        <!-- Footer Link Mobie -->
+
+                        <div class="col-lg-4 col-sm-12 col-md-5 col-xs-6 full-xs hidden-xs">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 full-xs">
+                                    <div class="footer_center_box">
+                                        <h4 class="footer_title">Hướng dẫn</h4>
+                                        <ol>
+
+                                            <li><a href="/Nguoidung/Dangnhap">Đăng nhập</a></li>
+
+                                            <li><a href="/Nguoidung/Dangki">Đăng ký</a></li>
+
+
+
+
+
+
+
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-12 full-xs">
+                                    <div class="footer_center_box">
+                                        <h4 class="footer_title">Chính sách</h4>
+                                        <ol>
+
+                                            <li><a href="~/Home/giaohang">Hỗ trợ khách hàng</a></li>
+
+                                            <li><a href="~/Home/KhuyenMai">Khuyến mãi</a></li>
+
+
+
+
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-12 col-md-3 col-xs-12">
+                            <div class="footer_right">
+
+                                <h4 class="footer_title">Nhận email khuyến mãi</h4>
+                                <p>Hãy gửi chúng tôi địa chỉ email của bạn, chúng tôi sẽ gửi cho bạn những ưu đãi đặc biêt.</p>
+
+                                <p> Email: WEBSITEBANSACH@gmail.com</p>
+
+                                <span>
+                                    <g:plusone annotation="inline"></g:plusone>
+                                </span>
+
+                                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="googleMap" style="font-size: 19px; ">
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-md-4">
+                <div>
+                    <ol class="row">
+                        <li>
+
+                            <img src="~/hinhanh/LOGO.PNG" width="200" height="150" />
+
+                            <br />
+                            Địa chỉ: <span> Địa chỉ : 51 Phạm Viết Chánh Nguyễn Cư Trinh, Quận 1, Hồ Chí Minh</span><br />
+                            Đi: <span>08 33433 34334</span><br />
+                            Điện thoại: <span>08 33433 34334</span><br />
+
+                            Hỗ trợ khách hàng:
+                            <div>0967630373( TIẾN ) - 01225909989 ( THIỆN ) - 0973018425 ( TÍN )</div>
+                            <span>Thời gian: 8:00 am - 5:00 pm</span><br />
+                        </li>
+
+                        <li>
+                            <h4 class="widget-title">Về Chúng Tôi</h4><br />
+
+                            <a href="/Gioithieu/gioithieu">Giới thiệu</a><br />
+
+                            <a href="/Home/giaohang">Giao hàng và đổi trả</a><br />
+
+                        </li>
+
+                    </ol>
+                </div>
+
+                <script type="text/javascript">
+                    (function (d, s, id) { var z = d.createElement(s); z.type = "text/javascript"; z.id = id; z.async = true; z.src = "//static.zotabox.com/7/7/77be03e8f3f0d52ec78fb776a407597e/widgets.js"; var sz = d.getElementsByTagName(s)[0]; sz.parentNode.insertBefore(z, sz) }(document, "script", "zb-embed-code"));
+                </script>
+
+
+            </div>
+            <div class="col-sm-2 ">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5832242519045!2d106.68078381435029!3d10.766568842328212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f18b7f68ff5%3A0xcd289569b285e522!2sMinh+Khai+Bookstore!5e0!3m2!1svi!2s!4v1494170989459" width="750" height="400" frameborder="0" style="border:0"></iframe>
+            </div>
+
+        </footer>
+
+        @*Script chạy nivoslider*@
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#slider').nivoSlider({
+                    controlNav: false,
+                    nextText: '',
+                    prevText: '',
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>

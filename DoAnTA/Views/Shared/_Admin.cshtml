@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="~/tinymce/js/tinymce/jquery.tinymce.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/QlAdmin">TRANG CHỦ</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Admin/sachchinh">THỐNG KÊ SÁCH</a></li>
+                    <li><a href="/Admin/Sach">QUẢN LÍ CHI TIẾT SÁCH </a></li>
+                    <li><a href="/Admin/chude">QUẢN LÍ CHỦ ĐỀ </a></li>
+                    <li><a href="/Admin/KHACHHANG">QUẢN LÍ THÔNG TIN KHÁCH HÀNG </a></li>
+                    <li><a href="/Admin/thongke">THỐNG KÊ THÔNG TIN SÁCH </a></li>
+                    <li><a href="/Admin/thongkedoanhthu">THỐNG KÊ DOANH THU </a></li>
+                   
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="glyphicon glyphicon-book"></li>
+                    <li class="glyphicon glyphicon-bookmark"></li>
+                    <li class="glyphicon glyphicon-"></li>
+
+                   
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            
+        
+            <p>Chào Mừng Bạn Đến với Website Bán Sách Của Chúng Tôi </p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
