@@ -1,0 +1,49 @@
+﻿@model WEBSITEBANSACH.Models.SACH
+@*@model IEnumerable<WEBSITEBANSACH.Models.SACH>*@
+
+@{
+    ViewBag.Title = "suasachchinh";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>SỬA SÁCH</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+ 
+    <div class="form-horizontal">
+       
+        <hr />
+      
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaSach)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tensach,"Tên sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tensach)
+                @Html.ValidationMessageFor(model => model.Tensach)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TACGIA.MaTacGia, "Mã Tác Giả", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTacGia)
+                @Html.ValidationMessageFor(model => model.MaTacGia)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    }
+
+
+<div>
+    @Html.ActionLink("vỀ TRANG QUẢN LÍ SÁCH", "sachchinh")
+</div>

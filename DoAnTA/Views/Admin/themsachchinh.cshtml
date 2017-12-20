@@ -1,0 +1,53 @@
+﻿@model WEBSITEBANSACH.Models.SACH
+
+@{
+    ViewBag.Title = "themmoi";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    }
+
+<h2>THÊM MỚI SÁCH</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+      
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaSach,"Mã Sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSach)
+                @Html.ValidationMessageFor(model => model.MaSach)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tensach,"Tên Sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tensach)
+                @Html.ValidationMessageFor(model => model.Tensach)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTacGia,"Mã Tác Giả", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTacGia)
+                @Html.ValidationMessageFor(model => model.MaTacGia)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("TRỞ VỀ TRANG QUẢN LÍ SÁCH", "sachchinh")
+</div>
