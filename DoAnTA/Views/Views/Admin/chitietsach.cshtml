@@ -1,0 +1,77 @@
+﻿@model WEBSITEBANSACH.Models.CHITIETSACH
+
+
+@{
+    ViewBag.Title = "chitietsach";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SÁCH</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Tên Sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TensachCT)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh Bìa
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/hinhanh/sach/"+Model.Anhbia)" width="120px" />
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Giá Bán
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.Dongia)VNĐ
+        </dd>
+
+        <dt>
+            Tên chủ Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.Tenchude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "suasach", new { Mactsach = Model.MaCTS }) |
+    @Html.ActionLink("TRỞ VỀ", "Sach")
+</p>

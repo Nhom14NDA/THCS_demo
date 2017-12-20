@@ -1,0 +1,116 @@
+﻿@model WEBSITEBANSACH.Models.CHITIETSACH
+
+@{
+    ViewBag.Title = "suasach";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>THAY ĐỔI THÔNG TIN SÁCH</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Chi tiết thông tin sách</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*@Html.HiddenFor(model => model.MaCTS)
+            @Html.HiddenFor(model => model.MaSach)*@
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaCTS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span style="font-size:15pt;margin-top:2px;margin-left:5px; color:red;">@Model.MaCTS</span>
+                @Html.Hidden("MaCTS", Model.MaCTS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaSach, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span style="font-size: 15pt; margin-top: 2px; margin-left: 5px; color: red;">@Model.MaSach</span>
+                @Html.Hidden("MaSach", Model.MaSach)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TensachCT, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TensachCT)
+                @Html.ValidationMessageFor(model => model.TensachCT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mota, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="Mota">@Model.Mota</textarea>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Anhbia, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                    @Html.EditorFor(model => model.Anhbia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Anhbia, "", new { @class = "text-danger" })
+                </div>
+            @*<div class="col-md-10">
+                Chọn ảnh mới
+                <input type="file" name="fileUpload" />
+                <img src="@Url.Content("~/hinhanh/sach/"+Model.Anhbia)" width="120" />(Ảnh hiện tại)
+                @ViewBag.thongbao
+            </div>*@
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ngaycapnhat, new { @class = "control-label col-md-2" })
+            @*<div class="col-md-10">
+                @Html.TextBoxFor(model => model.Ngaycapnhat)
+                @Html.ValidationMessageFor(model => model.Ngaycapnhat)
+            </div>*@
+            <div class="col-md-10">
+                <input type="date" name="Ngaycapnhat" />
+                @Html.ValidationMessageFor(model => model.Ngaycapnhat)
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Soluongton, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Soluongton)
+                @Html.ValidationMessageFor(model => model.Soluongton)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dongia, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dongia)
+                @Html.ValidationMessageFor(model => model.Dongia)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MACHUDE, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MACHUDE")
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("vỀ TRANG QUẢN LÍ SÁCH", "Sach")
+</div>

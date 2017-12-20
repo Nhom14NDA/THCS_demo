@@ -1,0 +1,44 @@
+﻿@model WEBSITEBANSACH.Models.CHUDE
+
+@{
+    ViewBag.Title = "suachude";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>THAY ĐỔI THÔNG TIN CHỦ ĐỀ</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Chi tiết chủ đề</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaChuDe, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span style="font-size:15pt;margin-top:2px;margin-left:5px; color:red;" >@Model.MaChuDe</span>
+                @Html.Hidden("MaChuDe", Model.MaChuDe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tenchude, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tenchude)
+                @Html.ValidationMessageFor(model => model.Tenchude)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("VỀ TRANG QUẢN LÍ CHỦ ĐỀ", "chude")
+</div>
