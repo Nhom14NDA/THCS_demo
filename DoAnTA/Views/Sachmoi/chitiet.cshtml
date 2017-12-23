@@ -1,0 +1,56 @@
+﻿@model WEBSITEBANSACH.Models.CHITIETSACH
+@{
+    ViewBag.Title = "chitiet";
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+}
+
+<h2>CHI TIẾT SẢN PHẨM </h2>
+<div class="row">
+    <img class="col-sm-4" src="~/hinhanh/sach/@Model.Anhbia" />
+ 
+
+    <div class="col-md-8 col-sm-8 col-xs-12  ">
+
+        <div>TÊN SÁCH: <span style="color:red; font-size:16pt;">@Model.TensachCT</span></div>
+        <div style="text-align:justify;"><span style="color:#ff006e;">MÔ TẢ:</span>@Model.Mota</div>
+        <div style="font-weight:bold;">ĐƠN GIÁ BÁN:<span style="color:red; font-size:16pt;">@Model.Dongia</span> </div>
+
+
+
+    </div>
+    <div class="col-md-8 col-sm-10 col-xs-12 ">
+  
+        <a class="btn btn-success btn-sm"  href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSach = @Model.MaSach, @strURL = Request.Url.ToString() })">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            Đặt vào giỏ
+        </a>
+
+       
+    </div>
+</div>
+
+<fieldset>
+    <legend>Sản phẩm cùng loại</legend>
+    @foreach (var p in Model.CHUDE.CHITIETSACHes)
+{
+    <a href="/Sachmoi/chitiet/@p.MaCTS">
+        <img id="anh" src="~/hinhanh/sach/@p.Anhbia" />
+
+  
+    </a>
+}
+</fieldset>
+
+<style>
+    fieldset img {
+        width: 50px;
+        height: 50px;
+        margin: 3px;
+        padding: 5px;
+        border: 4px solid #ff0000;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
