@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<WEBSITEBANSACH.Models.NHAXUATBAN>
+
+<div class="list-group">
+    @{
+        foreach (var item in Model)
+        {
+            <a href="@Url.Action("SPTHEONXB", "NXB", new { id = item.MaNXB })" class="list-group-item">@item.TenNXB</a>
+        }
+    }
+
+
+</div>
+
