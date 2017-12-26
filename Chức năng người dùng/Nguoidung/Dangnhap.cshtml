@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+}
+
+<div class="col-sm-5 col-sm-offset-2">
+    <div class="panel panel-default"style="text-align:center ">
+        <div class="panel-heading" style="color: black "  >
+
+            <span class="glyphicon glyphicon-user"></span> <span></span> ĐĂNG NHẬP
+        </div>
+        <div class="panel-body">
+
+            <h1>@ViewBag.ThongBao</h1>
+            @using (Html.BeginForm())
+            {
+                <div class="col-sm-5 col-sm-offset-2">
+                    <div class="form-group">
+                        <label>Tài Khoản:</label>
+                        <br />
+
+                        @Html.TextBox("txtTaiKhoan")
+
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-5 col-sm-offset-2">
+                    <div class="form-group">
+                        <label>Mật Khẩu:</label><br />
+                        <input name="txtMatKhau" type="password" />
+
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-5 col-sm-offset-2">
+                    <div class="form-group" style="text-align:center">
+                        <button class="btn btn-default">
+                            <span class="glyphicon glyphicon-log-in"></span> ĐĂNG NHẬP
+                        </button>
+                    </div>
+                </div>
+            }
+            
+            </div>
+        <div class="form-group" style="text-align:center">
+            <a href="/Nguoidung/Dangki"><i class="glyphicon glyphicon-log-out"></i> Đăng ký</a>
+            <a href="/Nguoidung/Dangki"> -- </a>
+            <a href="/Nguoidung/Dangki"><i class=""></i> Quên mật khẩu</a>
+        </div>
+    <div class="panel panel-danger"></div>
+    </div>
+</div>
+
+
