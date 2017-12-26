@@ -1,0 +1,111 @@
+﻿/*Sử dụng độ rộng cho div toàn trang*/
+div#ToanTrang{
+    position:relative;
+    font-family:'Segoe UI';
+    font-weight:bold;
+}
+#DanhMuc{
+
+}
+
+/*Thiết kế link đăng kí đăng nhập*/
+.DangKyDangNhap a:hover{
+    text-decoration :none;
+    color : green;
+    
+}
+.DangKyDangNhap{
+    float: right;
+    margin-bottom:-1%;
+    
+}
+.Ten{
+    float:left;
+    margin-bottom:-1%;
+    font-size:50px;
+    
+}/*css divDanhMuc*/
+ #divDanhMuc{
+     height:30px;
+     
+ }
+ #Ten{
+     height:30px;
+ }
+
+
+
+/*css cho menu header*/
+.navMenu{
+    float:left;
+    margin-right:1%;
+}
+.navMenu li{
+    display:inline;
+    /*border-right:solid 1px rgb(27, 224, 224,.1);*/
+    padding:20px;
+    padding-top:19px;
+    padding-bottom:22px;
+    transition:all .5s ease-out;
+}
+/*Css hover thay đổi màu */
+.navMenu li:hover{
+    background-color:rgb(62, 220, 186);
+    transition:all .5s ease-out;
+    
+}
+
+.navMenu a:hover{
+    text-decoration :none;
+}
+/*css divTimKiem*/
+#txtTimKiem{
+    float:right;
+    margin-right:3%;
+}
+#txtTimKiem input{
+    height:0;
+}
+/**//**//**//**//**/
+
+#DanhMuc{
+    height:25px;
+    background-color:rgb(62, 210, 220);
+
+ }
+
+#slider{
+    /*float:right;*/
+   
+    width:1100px;
+    height:360px;
+}
+
+#slider img{
+    width:500px;
+    height:400px;
+
+}
+#divMenuL{
+    float:left;
+   
+}
+#SPNBIM img{
+    margin-right:-480%;
+    width:400px;
+    height:150px;
+}
+.SPNB{ 
+float:left;
+   
+  
+}
+#SPNB{
+     height:30px;
+ }
+#txtTimKiem{
+    
+    margin-right:-72%;
+    height:0;
+    
+}
