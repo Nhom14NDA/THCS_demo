@@ -1,0 +1,60 @@
+﻿@model PagedList.PagedList<WEBSITEBANSACH.Models.SACH>
+
+@using PagedList.Mvc;
+@using WEBSITEBANSACH.Models
+@{
+    ViewBag.Title = "sachchinh";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>QUẢN LÍ SÁCH</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "themsachchinh")
+</p>
+<table class="table">
+    <tr>
+        <th style=" width:300px; text-align:center;">
+            MÃ SÁCH
+        </th>
+        <th style=" width: 300px; text-align: center;">
+            TÊN SÁCH
+        </th>
+        <th style=" width: 300px; text-align: center;">
+            TÁC GIẢ
+        </th>
+        <th style=" width: 300px; text-align: center;"> TÙY CHỌN</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style=" width: 300px; text-align: center;">
+                @Html.DisplayFor(modelItem => item.MaSach)
+            </td>
+            <td style=" width: 300px; text-align: center;">
+                @Html.DisplayFor(modelItem => item.Tensach)
+            </td>
+            <td style=" width: 300px; text-align: center;">
+                @Html.DisplayFor(modelItem => item.TACGIA.TenTacGia)
+            </td>
+            <td style=" width: 300px; text-align: center;">
+                @Html.ActionLink("Sửa", "suasachchinh", new { @masachchinh  = item.MaSach }) |
+
+                @Html.ActionLink("Xóa", "xoasachchinh", new { @masachchinh = item.MaSach })
+            </td>
+
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("sachchinh", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
