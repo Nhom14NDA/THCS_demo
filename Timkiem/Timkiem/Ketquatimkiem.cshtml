@@ -1,0 +1,85 @@
+﻿@model PagedList.PagedList<WEBSITEBANSACH.Models.CHITIETSACH>
+@*@model IEnumerable<WEBSITEBANSACH.Models.CHITIETSACH>*@
+@using PagedList.Mvc;
+@using PagedList;
+@using WEBSITEBANSACH.Models
+@{
+    ViewBag.Title = "Ketquatimkiem";
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+}
+
+<h2>KẾT QUẢ TÌM KIẾM</h2>
+
+
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/Mylayout.cshtml";
+    ViewBag.Title = "timkiem";
+}
+@* Div body trang index *@
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail" style="text-align:center;">
+                <div id="anhbia">
+
+                    <a href="/Sachmoi/chitiet/@item.MaCTS">
+                        <img src="~/hinhanh/sach/@item.Anhbia" width="250" height="300" />
+
+
+                    </a>
+                </div>
+                <div id="tensach">@item.TensachCT</div>
+               
+
+
+                <div class="ratings">
+                    <p class="pull-right">
+                        <div class="pull-right">
+                            <button class="btn btn-sm btn-warning">
+                                <span class="glyphicon glyphicon-heart"></span>
+                            </button>
+                            <button class="btn btn-sm btn-success">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </button>
+                            @*<a href="#">*@
+                            <button class="btn btn-sm btn-info">
+
+                                <span class="glyphicon glyphicon-gift"></span>
+
+                            </button>
+
+                            @*</a>*@
+
+                        </div>
+
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+
+
+</div>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Ketquatimkiem", new { page = page, @sTuKhoa = ViewBag.TuKhoa }))
+</div>
+
+
