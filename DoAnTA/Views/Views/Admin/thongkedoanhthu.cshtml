@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "thongkedoanhthu";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<fieldset>
+    <legend>Biểu đồ</legend>
+
+</fieldset>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Tên chủ đề', 'Tổng Tiền', { role: 'style' }],
+
+           @foreach (var r in Model)
+          {
+              @:["@Html.Raw(r.Group)",@r.dongia,  @r.soluong],
+              }
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         {
+                             calc: "stringify",
+                             sourceColumn: 1,
+                             type: "string",
+                             role: "annotation"
+                         },
+                         2]);
+
+        var options = {
+            title: "DOANH THU THEO THỂ LOẠI",
+            width: 1000,
+            height: 500,
+            bar: { groupWidth: "95%" },
+            legend: { position: "bottom" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+</script>
+<div id="columnchart_values" style="width: 900px; height: 500px;"></div>
+
+
+<fieldset>
+    <legend style="color:red; text-align:center;">DOANH THU THEO THỂ LOẠI</legend>
+    <table class="table">
+        <tr>
+            <th style=" width:300px; text-align:center;">Tên thể loại</th>
+            <th style=" width:300px; text-align:center;">Số lượng bán</th>
+            <th style=" width:300px; text-align:center;">Tổng trị giá</th>
+            <th style=" width:300px; text-align:center;">Giá nhỏ nhất</th>
+            <th style=" width:300px; text-align:center;">Giá lớn nhất</th>
+            <th style=" width:300px; text-align:center;">Giá trung bình</th>
+        </tr>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td style=" width:300px; text-align:center;">@p.Group</td>
+                <td style=" width:300px; text-align:center;">@p.soluong</td>
+                <td style=" width:300px; text-align:center;">@p.dongia</td>
+                <td style=" width:300px; text-align:center;">@p.Min</td>
+                <td style=" width:300px; text-align:center;">@p.Max</td>
+                <td style=" width:300px; text-align:center;">@p.Avg</td>
+            </tr>
+        }
+    </table>
+</fieldset>
+
+
